@@ -5,6 +5,7 @@ import userRoutes from "./routes/user.routes.js"
 import businessRoutes from "./routes/business.routes.js"
 import customerRoutes from "./routes/customer.routes.js"
 import vendorRoutes from "./routes/vendor.routes.js"
+import productRoutes from "./routes/product.routes.js"
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use("/api/create", userRoutes)
 app.use("/api", businessRoutes)
 app.use("/api", customerRoutes)
 app.use("/api", vendorRoutes)
+app.use("/api", productRoutes)
 
 
 export default app

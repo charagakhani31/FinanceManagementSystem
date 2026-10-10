@@ -9,6 +9,7 @@ import productRoutes from "./routes/product.routes.js"
 import salesRoutes from "./routes/sales.routes.js"
 import expenseRoutes from "./routes/expense.routes.js"
 import dashboardRoutes from "./routes/dashboard.routes.js"
+import saleHistoryRoutes from "./routes/saleHistory.routes.js"
 
 const app = express();
 
@@ -24,6 +25,6 @@ app.use("/api", productRoutes)
 app.use("/api", salesRoutes)
 app.use("/api", expenseRoutes)
 app.use("/api", dashboardRoutes)
-
+app.use("/api", saleHistoryRoutes)
 
 export default app

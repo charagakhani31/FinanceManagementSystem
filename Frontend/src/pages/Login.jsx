@@ -3,7 +3,9 @@ import { useContext } from 'react';
 import { useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
 
+
 const Login = () => {
+
 
        const { Login } = useContext(AuthContext)
 
@@ -13,7 +15,8 @@ const Login = () => {
     const formHandler = async (e) => {
      e.preventDefault();
 
-       await Login(email, password)      
+       await Login(email, password)
+       
     }
   return (
   <div className="min-h-screen flex flex-col justify-center items-center px-4 py-12 bg-[#F8FAFC]">
@@ -70,6 +73,7 @@ const Login = () => {
 
                 <button 
                     type="submit"
+                   
                     className="w-full mt-2 py-3 px-4 bg-[#10B981] hover:bg-[#059669] active:bg-[#047857] text-white font-medium text-sm rounded-xl shadow-sm hover:shadow transition-all focus:outline-none focus:ring-2 focus:ring-[#10B981]/20"
                 >
                     Sign in

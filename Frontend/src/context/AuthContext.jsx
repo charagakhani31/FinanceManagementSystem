@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { createContext } from "react";
 import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
 export const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
+
+    const navigate = useNavigate();
+    
     const [user, setUser] = useState(null)
 
     async function Login(email, password) {
@@ -14,9 +18,13 @@ const AuthProvider = ({ children }) => {
     alert(response.data.message);
     setUser(response.data.user);
 
+          if (response.status === 200) {
+         navigate("/dashboard");
+    }
+
   } catch (error) {
 
-    alert(error.response.data.message || "Login failed");
+     alert(error.response?.data?.message || error.message);
   }
 }
 

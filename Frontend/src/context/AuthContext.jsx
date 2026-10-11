@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
 
     async function Login(email, password) {
   try {
-    const response = await axios.post('http://localhost:3000/api/auth/login',  { email, password } );
+    const response = await axios.post('http://localhost:3000/api/auth/login',  { email, password },  { withCredentials: true } );
 
     alert(response.data.message);
     setUser(response.data.user);

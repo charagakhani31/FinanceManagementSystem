@@ -2,6 +2,7 @@ import React from 'react'
 import { useContext } from 'react';
 import { useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
+import { TrendingUp } from "lucide-react";
 
 
 const Login = () => {
@@ -24,9 +25,9 @@ const Login = () => {
     <div className="w-full max-w-[440px] bg-white rounded-2xl border border-[#EAECF0] shadow-sm px-6 py-8 sm:px-8 sm:py-10">
         
         <div className="flex flex-col items-center text-center mb-8">
-            <div className="h-12 w-12 rounded-xl bg-[#101828] flex items-center justify-center text-white font-bold text-xl mb-3 shadow-sm">
-                FT
-            </div>
+           <div className="h-12 w-12 rounded-xl bg-[#10B981] flex items-center justify-center mb-3 shadow-sm">
+         <TrendingUp size={26} strokeWidth={2.5} className="text-white" />
+       </div>
             <h2 className="text-black font-bold text-2xl">FinTrack</h2>
             <p className="text-[#667085] text-sm mt-1">Smart finance management for your business</p>
         </div>

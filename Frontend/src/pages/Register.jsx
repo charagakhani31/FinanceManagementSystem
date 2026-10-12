@@ -1,5 +1,6 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "../context/AuthContext";
+import { TrendingUp } from "lucide-react";
 
 
 const Register = () => {
@@ -27,10 +28,9 @@ return (
     <div className="w-full max-w-md bg-white border border-[#EAECF0] rounded-2xl shadow-sm px-5 py-8 sm:px-8">
 
       <div className="flex items-center justify-center gap-3 mb-8">
-        <div className="h-12 w-12 shrink-0 rounded-xl bg-[#101828] flex items-center justify-center text-white font-bold text-xl shadow-sm">
-          FT
-        </div>
-
+        <div className="h-12 w-12 shrink-0 rounded-xl bg-[#10B981] flex items-center justify-center shadow-sm">
+      <TrendingUp size={26} strokeWidth={2.5} className="text-white" />
+      </div>
         <div>
           <h2 className="text-2xl font-bold text-[#101828]">
             FinTrack

@@ -28,8 +28,27 @@ const AuthProvider = ({ children }) => {
   }
 }
 
+  async function register(fullName, email, password) {
+
+    try {
+
+        const response = await axios.post('http://localhost:3000/api/auth/register', {fullName, email, password}, { withCredentials: true} );
+      
+           alert(response.data.message);
+           setUser(response.data.user)
+
+           if(response.status === 201) {
+            navigate("/dashboard")
+           }
+
+    } catch (error) {
+      
+        alert(error.response?.data?.message || error.message)
+    }  
+  }
+
     return (
-            <AuthContext.Provider value={{user, setUser, Login}}>
+            <AuthContext.Provider value={{user, setUser, Login, register}}>
           {children}
             </AuthContext.Provider>
     )

@@ -7,7 +7,7 @@ async function createProduct(req, res) {
     const productExist = await productModel.findOne({sku, business: req.user.business});
 
     if(productExist) {
-        return res.status(402).json({
+        return res.status(409).json({
             message: "product already exist"
         })
     }

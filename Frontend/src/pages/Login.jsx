@@ -27,7 +27,7 @@ const Login = () => {
             <div className="h-12 w-12 rounded-xl bg-[#101828] flex items-center justify-center text-white font-bold text-xl mb-3 shadow-sm">
                 FT
             </div>
-            <h2 className="text-[#101828] font-bold text-2xl tracking-tight">FinTrack</h2>
+            <h2 className="text-black font-bold text-2xl">FinTrack</h2>
             <p className="text-[#667085] text-sm mt-1">Smart finance management for your business</p>
         </div>
 

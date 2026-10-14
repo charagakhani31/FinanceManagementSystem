@@ -5,8 +5,15 @@ import {
   Bell,
   CircleUserRound,
 } from "lucide-react";
+import { useState } from "react";
+import Sidebar from "./Sidebar.jsx";
+import Logo from "./logo.jsx";
 
 const Navbar = () => {
+
+   const [sidebar, setSidebar] = useState(false);
+
+
   return (
     <nav className="w-full bg-white border-b border-[#EAECF0]">
 
@@ -16,24 +23,16 @@ const Navbar = () => {
 
           <button
             type="button"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition hover:bg-gray-100 active:scale-95"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition hover:bg-gray-100 active:scale-95 cursor-pointer"
             aria-label="Open menu"
+            onClick={() =>{ setSidebar(!sidebar)
+            }}
           >
             <Menu size={23} strokeWidth={2} />
           </button>
 
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#10B981] shadow-sm">
-            <TrendingUp
-              size={24}
-              strokeWidth={2.5}
-              className="text-white"
-            />
-          </div>
-
-          <h2 className="text-lg font-semibold text-[#101828] sm:text-xl">
-            FinTrack
-          </h2>
-
+          <Logo />
+            
         </div>
 
         <div className="relative hidden w-full max-w-sm flex-1 md:block md:mx-4 lg:mx-8">
@@ -98,7 +97,7 @@ const Navbar = () => {
           />
         </div>
       </div>
-
+      {sidebar && <Sidebar setSidebar={setSidebar} /> }
     </nav>
   );
 };

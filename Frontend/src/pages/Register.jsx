@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { AuthContext } from "../context/AuthContext";
 import { TrendingUp } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
 const Register = () => {
@@ -130,11 +131,7 @@ return (
 
         <p className="text-center text-sm text-[#667085] pt-2">
           Already have an account?
-          <a
-            href="/login"
-            className="text-[#059669] hover:text-[#047857] font-medium ml-1">
-            Sign in
-          </a>
+         <Link  className="text-[#059669] hover:text-[#047857] font-medium ml-1" to="/login">Sign in</Link>
         </p>
       </form>
     </div>

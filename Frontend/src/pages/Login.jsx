@@ -3,10 +3,11 @@ import { useContext } from 'react';
 import { useState } from 'react'
 import { AuthContext } from '../context/AuthContext';
 import { TrendingUp } from "lucide-react";
+import { Link } from 'react-router-dom';
+
 
 
 const Login = () => {
-
 
        const { Login } = useContext(AuthContext)
 
@@ -82,7 +83,7 @@ const Login = () => {
 
                 <p className="text-center text-sm text-[#667085] pt-2">
                     Don't have an account? 
-                    <a href="#" className="text-[#10B981] hover:text-[#059669] font-medium transition-colors ml-1">Create an account</a>
+                   <Link className="text-[#10B981] hover:text-[#059669] font-medium transition-colors ml-1" to="/register">Create an account</Link>
                 </p>
             </form>
         </div>

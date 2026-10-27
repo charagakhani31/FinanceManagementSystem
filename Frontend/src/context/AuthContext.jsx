@@ -32,11 +32,11 @@ const AuthProvider = ({ children }) => {
   }
 }
 
-  async function register(fullName, email, password) {
+  async function register(fullName, email, password, confirmPassword) {
 
     try {
 
-        const response = await axios.post('http://localhost:3000/api/auth/register', {fullName, email, password}, { withCredentials: true} );
+        const response = await axios.post('http://localhost:3000/api/auth/register', {fullName, email, password, confirmPassword}, { withCredentials: true} );
       
            alert(response.data.message);
            setUser(response.data.user)

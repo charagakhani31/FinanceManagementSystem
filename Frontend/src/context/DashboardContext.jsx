@@ -13,14 +13,13 @@ const DashboardProvider = ({children}) => {
   totalProducts: 0,
   lowStockProducts: 0
 })
+  const [saleHistory, setSaleHistory] = useState([])
 
       async function fetchData() {
 
         try {
 
             const response = await axios.get('http://localhost:3000/api/dashboard', { withCredentials: true})
-
-               console.log(response.data.summary);
              
               setDashboardData(response.data.summary)
             
@@ -32,12 +31,32 @@ const DashboardProvider = ({children}) => {
         
       }
 
+      async function getSalesHistory() {
+
+        try {
+          const response = await axios.get("http://localhost:3000/api/history", {withCredentials: true})
+
+          console.log(response.data.sales);
+
+          setSaleHistory(response.data.sales)
+          
+          
+        } catch (error) {
+           alert(error.response?.data?.message || error.message)
+        }
+        
+      }
+
       useEffect(()=> {
         fetchData();
+        getSalesHistory()
       }, [])
 
+    
+      
+
     return (
-                <DashboardContext.Provider value={{dashboardData}}>
+                <DashboardContext.Provider value={{dashboardData, saleHistory}}>
               {children}
                 </DashboardContext.Provider>
         )

@@ -23,7 +23,7 @@ const {logOut} = useContext(AuthContext);
   return (
   <div className='fixed inset-0 z-50 bg-black/50'>
 
-      <div className='relative bg-[#101828] w-72 max-w-[85vw] min-h-screen'>
+      <div className='relative flex flex-col bg-[#101828] w-72 max-w-[85vw] h-full overflow-hidden'>
 
         <div className='flex justify-between items-center px-4 py-5'>
           <Logo textColor="text-white"/>
@@ -37,7 +37,7 @@ const {logOut} = useContext(AuthContext);
           </button>
         </div>
 
-        <div className='px-6 py-4 flex flex-col gap-5 text-gray-300 font-medium'>
+        <div className='flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-5 text-gray-300 font-medium'>
 
           <div className='flex items-center gap-3 cursor-pointer active:scale-95 hover:text-[#10B981]'>
             <LayoutDashboard size={20} />
@@ -70,7 +70,7 @@ const {logOut} = useContext(AuthContext);
           </div>
         </div>
 
-<div className='absolute bottom-0 w-72 max-w-[85vw] px-6 py-5 border-t border-gray-700'>
+<div className='shrink-0 px-6 py-5 border-t border-gray-700'>
   <button className='flex items-center gap-3 text-gray-300 font-medium hover:text-[#10B981] cursor-pointer active:scale-95'
   onClick={handleLogout} 
   >

@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Plus } from 'lucide-react'
+import { AuthContext } from '../context/AuthContext'
+
 
 const DashboardHeader = () => {
+
+      const {user} = useContext(AuthContext)
+
+      console.log(user);
+      
+      
   return (
    <div className="flex flex-col gap-4 px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
      <div>
        <h2 className="text-2xl font-semibold">
-         Welcome back, user
+         Welcome back, {user.fullName}
        </h2>
        <p className="text-sm text-[#667085] sm:text-base">
          Here's how Northwind Traders is doing this month.

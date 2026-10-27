@@ -21,7 +21,7 @@ const Register = () => {
         return;
     }
 
-      await register(fullName, email, password)
+      await register(fullName, email, password, confirmPassword)
     }
  
 return (

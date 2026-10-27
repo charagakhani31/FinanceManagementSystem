@@ -5,13 +5,17 @@ import {
   Bell,
   CircleUserRound,
 } from "lucide-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Sidebar from "./Sidebar.jsx";
 import Logo from "./logo.jsx";
+import { AuthContext } from "../context/AuthContext.jsx";
+
 
 const Navbar = () => {
 
    const [sidebar, setSidebar] = useState(false);
+
+   const {user} = useContext(AuthContext)
 
 
   return (
@@ -72,10 +76,10 @@ const Navbar = () => {
 
             <div className="hidden text-left sm:block">
               <h3 className="text-sm font-medium text-[#101828]">
-                Username
+                {user.fullName}
               </h3>
               <p className="text-xs text-[#667085]">
-                Role
+                {user.role}
               </p>
             </div>
           </button>

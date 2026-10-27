@@ -5,47 +5,7 @@ import { DashboardContext } from '../context/DashboardContext'
 const SaleHistory = () => {
 
     const { saleHistory } = useContext(DashboardContext)
-
-    console.log(saleHistory);
-    console.log(saleHistory[0].customer);
     
-     console.log(saleHistory[0].customer.customerName);
-    
-
-  const sales = [
-    {
-      id: 'SAL-001',
-      customer: 'Ali Khan',
-      date: '25 Oct 2026',
-      totalAmount: 25000,
-      amountPaid: 25000,
-      status: 'Paid'
-    },
-    {
-      id: 'SAL-002',
-      customer: 'Ahmed Ali',
-      date: '24 Oct 2026',
-      totalAmount: 40000,
-      amountPaid: 20000,
-      status: 'Partially Paid'
-    },
-    {
-      id: 'SAL-003',
-      customer: 'Sara Ahmed',
-      date: '23 Oct 2026',
-      totalAmount: 15000,
-      amountPaid: 0,
-      status: 'Unpaid'
-    },
-    {
-      id: 'SAL-004',
-      customer: 'Usman Khan',
-      date: '22 Oct 2026',
-      totalAmount: 30000,
-      amountPaid: 30000,
-      status: 'Paid'
-    }
-  ]
 
   return (
     <div className='min-h-screen bg-[#F8FAFC] p-4 md:p-6'>

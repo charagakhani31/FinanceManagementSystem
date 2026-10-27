@@ -36,8 +36,6 @@ const DashboardProvider = ({children}) => {
         try {
           const response = await axios.get("http://localhost:3000/api/history", {withCredentials: true})
 
-          console.log(response.data.sales);
-
           setSaleHistory(response.data.sales)
           
           

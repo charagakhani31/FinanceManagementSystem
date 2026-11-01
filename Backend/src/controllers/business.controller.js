@@ -37,17 +37,19 @@ async function createBusiness(req, res) {
 
 async function viewBusiness(req, res) {
     
-    if(req.user.business === null) {
-        return res.status(404).json({
-            message: "Business not found"
-        })
-    }
 
-    const business = await businessModel.findById(req.user.business);
+
+    const businesses = await businessModel.find({owner: req.user.id});
+
+       if (businesses.length === 0) {
+      return res.status(404).json({
+        message: "No businesses found"
+      });
+    }
 
     res.status(200).json({
         message: "Business fetched successfully",
-        business
+        businesses
     })
 }
 

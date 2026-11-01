@@ -1,9 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import axios from 'axios';
+import { useAuth } from "./AuthContext";
 
 export const DashboardContext = createContext();
 
 const DashboardProvider = ({children}) => {
+
+ const {user} = useAuth()
 
     const [dashboardData, setDashboardData] = useState({
   totalSales: 0,
@@ -34,7 +37,7 @@ const DashboardProvider = ({children}) => {
       async function getSalesHistory() {
 
         try {
-          const response = await axios.get("http://localhost:3000/api/history", {withCredentials: true})
+          const response = await axios.get("http://localhost:3000/api/history",  {withCredentials: true})
 
           setSaleHistory(response.data.sales)
           
@@ -46,9 +49,11 @@ const DashboardProvider = ({children}) => {
       }
 
       useEffect(()=> {
+        if(user) {
         fetchData();
         getSalesHistory()
-      }, [])
+        }
+      }, [user])
 
     
       

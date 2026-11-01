@@ -7,14 +7,16 @@ import {
   Package,
   ShoppingCart,
   Receipt,
-  Truck, LogOut
+  Truck, LogOut, Building2
 } from 'lucide-react'
 import { AuthContext } from '../context/AuthContext'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = ({ setSidebar }) => {
   
 
 const {logOut} = useContext(AuthContext);
+const {user} = useContext(AuthContext)
 
  const handleLogout = async () => {
   await logOut();
@@ -43,6 +45,24 @@ const {logOut} = useContext(AuthContext);
             <LayoutDashboard size={20} />
             <h3>Dashboard</h3>
           </div>
+
+          {user?.role === "owner" && !user?.business && (
+    <div className='flex items-center gap-3 cursor-pointer active:scale-95 hover:text-[#10B981]'>
+       <Building2 size={20} />
+            <NavLink to='/dashboard/createbusiness'>
+           <h3>Create Business</h3>
+            </NavLink>
+          </div>
+          )}
+
+            {user?.role === "owner" && !user?.business && (
+    <div className='flex items-center gap-3 cursor-pointer active:scale-95 hover:text-[#10B981]'>
+       <Building2 size={20} />
+            <NavLink to='/dashboard/mybusiness'>
+           <h3>My Business</h3>
+            </NavLink>
+          </div>
+          )}
 
           <div className='flex items-center gap-3 cursor-pointer active:scale-95 hover:text-[#10B981]'>
             <Users size={20} />

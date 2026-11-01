@@ -123,9 +123,8 @@ const SaleHistory = () => {
           </table>
         </div>
 
-        {/* Table Footer */}
         <div className='border-t border-gray-200 px-5 py-4 text-sm text-gray-500'>
-          Showing {sales.length} sales
+          Showing {saleHistory.length} sales
         </div>
 
       </div>

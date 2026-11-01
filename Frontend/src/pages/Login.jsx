@@ -1,7 +1,6 @@
 import React from 'react'
-import { useContext } from 'react';
 import { useState } from 'react'
-import { AuthContext } from '../context/AuthContext';
+import {  useAuth } from '../context/AuthContext';
 import { TrendingUp } from "lucide-react";
 import { Link } from 'react-router-dom';
 
@@ -9,17 +8,16 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
 
-       const { Login } = useContext(AuthContext)
+       const { Login } = useAuth()
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const formHandler = async (e) => {
      e.preventDefault();
-
        await Login(email, password)
-       
     }
+    
   return (
   <div className="min-h-screen flex flex-col justify-center items-center px-4 py-12 bg-[#F8FAFC]">
 
@@ -76,7 +74,7 @@ const Login = () => {
                 <button 
                     type="submit"
                    
-                    className="w-full mt-2 py-3 px-4 bg-[#10B981] hover:bg-[#059669] active:bg-[#047857] text-white font-medium text-sm rounded-xl shadow-sm hover:shadow transition-all focus:outline-none focus:ring-2 focus:ring-[#10B981]/20"
+                    className="w-full mt-2 py-3 px-4 bg-[#10B981] hover:bg-[#059669] active:bg-[#047857] text-white font-medium text-sm rounded-xl shadow-sm hover:shadow transition-all focus:outline-none focus:ring-2 focus:ring-[#10B981]/20 cursor-pointer active:scale-95"
                 >
                     Sign in
                 </button>

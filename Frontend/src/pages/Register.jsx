@@ -1,12 +1,12 @@
-import { useContext, useState } from "react"
-import { AuthContext } from "../context/AuthContext";
+import {useState } from "react"
+import { useAuth } from "../context/AuthContext";
 import { TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 
 const Register = () => {
 
-   const { register } =  useContext(AuthContext)
+   const { register } =  useAuth()
 
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");

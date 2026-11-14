@@ -39,18 +39,18 @@ const Navbar = () => {
             
         </div>
 
-        <div className="relative hidden w-full max-w-sm flex-1 md:block md:mx-4 lg:mx-8">
-          <Search
-            size={18}
-            className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#98A2B3]"
-          />
+        <div className="relative w-full md:max-w-sm">
+  <Search
+    size={18}
+    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+  />
 
-          <input
-            type="text"
-            placeholder="Search transactions"
-            className="w-full rounded-lg border border-[#D0D5DD] bg-white py-2.5 pl-10 pr-3 text-sm text-[#101828] placeholder:text-[#98A2B3] outline-none transition focus:border-[#10B981] focus:ring-2 focus:ring-[#10B981]/20"
-          />
-        </div>
+  <input
+    type="text"
+    placeholder="Search transactions..."
+    className="w-full border border-gray-300 rounded-lg py-2 pl-10 pr-3 outline-none focus:border-[#10B981]"
+  />
+</div>
 
         <div className="flex shrink-0 items-center gap-1 sm:gap-3">
 

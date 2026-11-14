@@ -6,6 +6,7 @@ import Register from './pages/Register'
 import ProtectedRoute from './components/ProtectedRoute'
 import BusinessCreate from './pages/BusinessCreate'
 import MyBusiness from './pages/MyBusiness'
+import Customer from './pages/Customer'
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/dashboard/createbusiness' element={<BusinessCreate />} />
            <Route path='/dashboard/mybusiness' element={<MyBusiness />} />
+           <Route path='/dashboard/customers' element={<Customer />} />
         </Route>
       </Routes>
     </div>

@@ -30,7 +30,7 @@ async function createCustomer(req, res) {
 
 async function viewCustomer(req, res) {
 
-    const customers = await customerModel.find({business: req.user.business});
+    const customers = await customerModel.find({business: req.user.business}).populate("business", "businessName");
      
     if(!customers) {
         return res.status(404).json({message: "customers not found"})

@@ -6,13 +6,16 @@ import { BrowserRouter } from 'react-router-dom'
 import AuthProvider from './context/AuthContext.jsx'
 import DashboardProvider from './context/DashboardContext.jsx'
 import BusinessProvider from './context/BusinessContext.jsx'
+import CustomerProvider from './context/CustomerContext.jsx'
 
 createRoot(document.getElementById('root')).render(
  <BrowserRouter>
  <AuthProvider>
    <DashboardProvider>
     <BusinessProvider >
+      <CustomerProvider>
     <App />
+   </CustomerProvider>
     </BusinessProvider>
     </DashboardProvider>
     </AuthProvider>

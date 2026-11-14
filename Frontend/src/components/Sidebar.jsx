@@ -66,7 +66,9 @@ const {user} = useContext(AuthContext)
 
           <div className='flex items-center gap-3 cursor-pointer active:scale-95 hover:text-[#10B981]'>
             <Users size={20} />
-            <h3>Customers</h3>
+            <NavLink to='/dashboard/customers'>
+          <h3>Customers</h3>
+            </NavLink>
           </div>
 
           <div className='flex items-center gap-3 cursor-pointer active:scale-95 hover:text-[#10B981]'>

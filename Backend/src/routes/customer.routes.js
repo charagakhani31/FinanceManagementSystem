@@ -4,7 +4,7 @@ import customerController from "../controllers/customer.controller.js";
 
 const router = express.Router();
 
-router.post("/customer", authMiddleware.authMiddleware, customerController.createCustomer)
+router.post("/addcustomer", authMiddleware.authMiddleware, customerController.createCustomer)
 
 router.get("/customers", authMiddleware.authMiddleware, customerController.viewCustomer)
 

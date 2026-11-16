@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import BusinessCreate from './pages/BusinessCreate'
 import MyBusiness from './pages/MyBusiness'
 import Customer from './pages/Customer'
+import AddCustomer from './pages/AddCustomer'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/dashboard/createbusiness' element={<BusinessCreate />} />
            <Route path='/dashboard/mybusiness' element={<MyBusiness />} />
            <Route path='/dashboard/customers' element={<Customer />} />
+           <Route path='/dashboard/customers/addcustomer' element={<AddCustomer />} />
         </Route>
       </Routes>
     </div>

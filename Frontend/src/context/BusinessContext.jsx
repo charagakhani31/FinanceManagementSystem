@@ -19,6 +19,8 @@ async function register(businessName, businessEmail, phone, address) {
 
          alert(response.data.message)
          setBusiness(response.data.business)
+
+         setbusinesses((prev) => [...prev, response.data.business])
         
     } catch (error) {
         alert(error.response?.data?.message || error.message)

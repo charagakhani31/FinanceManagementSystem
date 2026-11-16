@@ -22,7 +22,7 @@ async function createCustomer(req, res) {
     await customer.populate("business", "businessName")
 
     res.status(201).json({
-        message: "customer created successfully",
+        message: "customer added successfully",
         customer
     })
     

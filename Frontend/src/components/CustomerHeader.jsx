@@ -36,7 +36,9 @@ const CustomerHeader = () => {
   />
 </div>
 
-   <button className="flex w-full md:w-auto items-center justify-center gap-2 rounded-lg bg-[#10B981] px-4 py-3 font-medium cursor-pointer active:scale-95 text-white transition hover:bg-[#059669]">
+   <button 
+   onClick={() => { navigate('/dashboard/customers/addcustomer') }}
+   className="flex w-full md:w-auto items-center justify-center gap-2 rounded-lg bg-[#10B981] px-4 py-3 font-medium cursor-pointer active:scale-95 text-white transition hover:bg-[#059669]">
          <Plus size={18} />
          Add Customer
        </button>

@@ -136,7 +136,7 @@ const AddCustomer = () => {
 
               <button
                 type="button"
-                onClick={() => navigate("/dashboard")}
+                onClick={() => navigate("/dashboard/customers")}
                 className="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 transition cursor-pointer active:scale-95"
               >
                 Cancel
@@ -144,7 +144,7 @@ const AddCustomer = () => {
 
               <button
                 type="submit"
-                 onClick={() => navigate("/dashboard")}
+                 onClick={() => navigate("/dashboard/customers")}
                 className="px-5 py-2.5 rounded-lg bg-[#10B981] text-white font-medium hover:bg-[#059669] transition cursor-pointer active:scale-95 "
               >
                 Add Customer

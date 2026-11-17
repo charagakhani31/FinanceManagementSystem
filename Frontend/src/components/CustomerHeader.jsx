@@ -1,9 +1,12 @@
 import { ArrowLeft, Search, Plus } from 'lucide-react'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { customerContext } from '../context/CustomerContext'
 
 
 const CustomerHeader = () => {
+
+   const { searchQuery, setSearchQuery } =  useContext(customerContext)
 
     const navigate = useNavigate()
 
@@ -31,6 +34,8 @@ const CustomerHeader = () => {
   />
   <input
     type="text"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
     placeholder="Search customers..."
     className="w-full border border-gray-300 rounded-lg py-2 pl-10 pr-3 outline-none focus:border-[#10B981]"
   />

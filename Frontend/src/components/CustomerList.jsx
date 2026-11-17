@@ -1,9 +1,12 @@
 import {UserRound, Phone,Pencil, MapPin, Trash } from 'lucide-react'
 import { customerContext } from '../context/CustomerContext'
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const CustomerList = () => {
-    const {customers} = useContext(customerContext)
+    const {filteredCustomers, deleteCustomer, setEditingCustomer} = useContext(customerContext)
+
+    const navigate = useNavigate()
         
   return (
     
@@ -12,7 +15,7 @@ const CustomerList = () => {
         <hr className='border-0 border-t-2 my-3 border-[#ccc]' />
 
 
-       {customers.map((customer) => (
+       {filteredCustomers.map((customer) => (
    <div key={customer._id}>
         <div className='flex justify-between'>
    
@@ -34,11 +37,16 @@ const CustomerList = () => {
            </div>
            </div>
    
-           <div className='flex gap-10 pr-4 flex-col md:flex-row justify-center md:gap-5 '>
-             <button className='cursor-pointer active:scale-95'>
+           <div className='flex gap-10 pr-4 flex-col md:flex-row justify-center md:gap-5'>
+             <button 
+             className='cursor-pointer active:scale-95'
+              onClick={() => { setEditingCustomer(customer._id),
+                               navigate('/dashboard/customers/editcustomer') }}>
              <Pencil size={18}  />
              </button>
-             <button className='cursor-pointer active:scale-95'>
+             <button 
+             className='cursor-pointer active:scale-95'
+             onClick={() => deleteCustomer(customer._id)}>
              <Trash  size={18} className='text-red-500'/>
              </button>
            </div>

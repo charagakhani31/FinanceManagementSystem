@@ -12,6 +12,11 @@ export const customerContext =  createContext()
 
     const [customers, setCustomers] = useState([])
     const [customer, setCustomer] = useState(null)
+    const [editingCustomer, setEditingCustomer] = useState(null)
+    const [searchQuery, setSearchQuery] = useState('')
+
+    const filteredCustomers = customers.filter((customer) => 
+                   customer.customerName?.toLowerCase().includes(searchQuery.toLocaleLowerCase()));
 
     async function viewCustomers() {
         try {
@@ -42,6 +47,42 @@ export const customerContext =  createContext()
         }
     }
 
+    async function editCustomer(customerID, {customerName, customerEmail, phone, address}) {
+        try {
+
+            const response = await axios.patch(`http://localhost:3000/api/update/customer/${customerID}`, 
+                                   {customerName, customerEmail, phone, address},
+                                   { withCredentials: true})
+
+                           alert(response.data.message)
+        if(response.status === 200 ) {
+            setCustomers((prev) =>
+                prev.map((customer) =>
+            customer._id === customerID ? {...customer, customerName, customerEmail, phone, address} : customer))
+         }                       
+            
+        } catch (error) {
+            alert(error.response?.data?.message || error.message)
+        }
+        
+    }
+
+    async function deleteCustomer(customerID) {
+        try {
+
+        const response = await axios.delete(`http://localhost:3000/api/delete/customer/${customerID}`, {withCredentials: true})
+
+           alert(response.data.message)
+
+         if(response.status === 200 ) {
+            setCustomers((prev) => prev.filter((customer) => customer._id != customerID))
+         }
+            
+        } catch (error) {
+            alert(error.response?.data?.message || error.message)
+        }
+    }
+
     useEffect(()=>{
         if(user) {
             viewCustomers()
@@ -52,7 +93,10 @@ export const customerContext =  createContext()
 
 
   return (
-      <customerContext.Provider value={{customers, addCustomer}}>
+      <customerContext.Provider value={{customers, addCustomer, deleteCustomer,
+                                        editingCustomer, setEditingCustomer,
+                                        editCustomer, filteredCustomers,
+                                        searchQuery, setSearchQuery}}>
         {children}
       </customerContext.Provider>
   )

@@ -8,7 +8,7 @@ const SaleHistory = () => {
     
 
   return (
-    <div className='min-h-screen bg-[#F8FAFC] p-4 md:p-6'>
+    <div className=' bg-[#F8FAFC] p-4 md:p-6'>
 
      
       <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between mb-6'>

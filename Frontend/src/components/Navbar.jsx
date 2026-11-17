@@ -39,7 +39,7 @@ const Navbar = () => {
             
         </div>
 
-        <div className="relative w-full md:max-w-sm">
+        <div className="relative w-full hidden md:block">
   <Search
     size={18}
     className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
@@ -87,8 +87,8 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="px-4 pb-3 md:hidden">
-        <div className="relative w-full">
+      <div className="px-4 md:hidden pb-3">
+        <div className="relative  w-full">
           <Search
             size={18}
             className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#98A2B3]"

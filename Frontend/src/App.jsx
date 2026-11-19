@@ -9,6 +9,9 @@ import MyBusiness from './pages/MyBusiness'
 import Customer from './pages/Customer'
 import AddCustomer from './pages/AddCustomer'
 import UpdateCustomer from './pages/UpdateCustomer'
+import Product from './pages/Product'
+import AddProduct from './pages/AddProduct'
+import UpdateProduct from './pages/UpdateProduct'
 
 const App = () => {
   return (
@@ -24,6 +27,9 @@ const App = () => {
            <Route path='/dashboard/customers' element={<Customer />} />
            <Route path='/dashboard/customers/addcustomer' element={<AddCustomer />} />
            <Route path='/dashboard/customers/editcustomer' element={<UpdateCustomer />} />
+           <Route path='/dashboard/products' element={<Product />} />
+           <Route path='/dashboard/products/addproduct' element={<AddProduct />} />
+            <Route path='/dashboard/products/editproduct' element={<UpdateProduct />} />
         </Route>
       </Routes>
     </div>

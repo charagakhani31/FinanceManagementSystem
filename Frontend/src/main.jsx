@@ -7,6 +7,7 @@ import AuthProvider from './context/AuthContext.jsx'
 import DashboardProvider from './context/DashboardContext.jsx'
 import BusinessProvider from './context/BusinessContext.jsx'
 import CustomerProvider from './context/CustomerContext.jsx'
+import ProductProvider from './context/ProductContext.jsx'
 
 createRoot(document.getElementById('root')).render(
  <BrowserRouter>
@@ -14,7 +15,9 @@ createRoot(document.getElementById('root')).render(
    <DashboardProvider>
     <BusinessProvider >
       <CustomerProvider>
+        <ProductProvider>
     <App />
+    </ProductProvider>
    </CustomerProvider>
     </BusinessProvider>
     </DashboardProvider>

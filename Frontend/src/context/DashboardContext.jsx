@@ -14,8 +14,12 @@ const DashboardProvider = ({children}) => {
   totalOutstanding: 0,
   totalExpenses: 0,
   totalProducts: 0,
-  lowStockProducts: 0
+  lowStockProducts: 0,
+  inStockProducts: 0
 })
+
+
+
   const [saleHistory, setSaleHistory] = useState([])
 
       async function fetchData() {
@@ -50,16 +54,14 @@ const DashboardProvider = ({children}) => {
 
       useEffect(()=> {
         if(user) {
-        fetchData();
+        fetchData()
         getSalesHistory()
         }
       }, [user])
 
-    
-      
 
     return (
-                <DashboardContext.Provider value={{dashboardData, saleHistory}}>
+                <DashboardContext.Provider value={{dashboardData, saleHistory ,fetchData, getSalesHistory}}>
               {children}
                 </DashboardContext.Provider>
         )

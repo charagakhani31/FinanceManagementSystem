@@ -43,7 +43,12 @@ async function getDashboard(req, res) {
 
     const lowStockProducts = await productModel.countDocuments({
         business: req.user.business,
-        quantity: {$lt: 5}
+        quantity: {$lte: 5}
+    })
+
+    const inStockProducts = await productModel.countDocuments({
+        business: req.user.business,
+        quantity: {$gt: 5}
     })
 
     
@@ -54,8 +59,8 @@ async function getDashboard(req, res) {
         totalOutstanding: result[0]?.totalOutstanding ?? 0,
         totalExpenses: result1[0]?.totalExpenses ?? 0,
         totalProducts,
-        lowStockProducts
-
+        lowStockProducts,
+        inStockProducts
         }
       });
 }

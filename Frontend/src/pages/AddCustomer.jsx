@@ -31,7 +31,7 @@ const AddCustomer = () => {
 
       <div className="max-w-3xl mx-auto">
   <button
-  onClick={() => navigate('/dashboard')}
+  onClick={() => navigate('/dashboard/customers')}
   className="flex items-center gap-2 text-[#101828] hover:text-[#10B981] mb-5 text-lg cursor-pointer active:scale-95 font-semibold"
 >
   <ArrowLeft size={18} />

@@ -120,4 +120,5 @@ async function deleteProduct(req, res) {
 }
 
 
+
 export default {createProduct, viewProducts, getProduct, updateProduct, deleteProduct}

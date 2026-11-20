@@ -12,6 +12,9 @@ import UpdateCustomer from './pages/UpdateCustomer'
 import Product from './pages/Product'
 import AddProduct from './pages/AddProduct'
 import UpdateProduct from './pages/UpdateProduct'
+import Vendors from './pages/Vendors'
+import AddVendor from './pages/AddVendor'
+import UpdateVendor from './pages/UpdateVendor'
 
 const App = () => {
   return (
@@ -29,7 +32,10 @@ const App = () => {
            <Route path='/dashboard/customers/editcustomer' element={<UpdateCustomer />} />
            <Route path='/dashboard/products' element={<Product />} />
            <Route path='/dashboard/products/addproduct' element={<AddProduct />} />
-            <Route path='/dashboard/products/editproduct' element={<UpdateProduct />} />
+          <Route path='/dashboard/products/editproduct' element={<UpdateProduct />} />
+           <Route path='/dashboard/vendors' element={<Vendors />} />
+           <Route path='/dashboard/vendors/addvendor' element={<AddVendor />} />
+           <Route path='/dashboard/vendors/editvendor' element={<UpdateVendor />} />
         </Route>
       </Routes>
     </div>

@@ -1,5 +1,4 @@
 import {
-  TrendingUp,
   Menu,
   Search,
   Bell,

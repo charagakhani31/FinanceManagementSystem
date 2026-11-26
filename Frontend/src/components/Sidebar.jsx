@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Logo from './logo'
+import Logo from './Logo.jsx'
 import {
   X,
   LayoutDashboard,

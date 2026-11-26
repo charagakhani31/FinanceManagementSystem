@@ -1,4 +1,5 @@
 import {
+  TrendingUp,
   Menu,
   Search,
   Bell,
@@ -6,7 +7,7 @@ import {
 } from "lucide-react";
 import { useContext, useState } from "react";
 import Sidebar from "./Sidebar.jsx";
-import Logo from "./logo.jsx";
+import Logo from "./Logo.jsx";
 import { AuthContext } from "../context/AuthContext.jsx";
 
 

@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
 import { Plus } from 'lucide-react'
 import { AuthContext } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const DashboardHeader = () => {
 
       const {user} = useContext(AuthContext)
 
-      console.log(user);
+      const navigate = useNavigate()
       
       
   return (
@@ -22,12 +23,14 @@ const DashboardHeader = () => {
      </div>
    
      <div className="flex flex-wrap gap-3">
-       <button className="flex items-center justify-center gap-2 rounded-lg border bg-white px-4 py-3 font-medium text-[#101828] transition hover:bg-gray-50">
+       <button  onClick={() => navigate('/dashboard/expenses/addexpense')}
+        className="flex items-center justify-center gap-2 rounded-lg border cursor-pointer active:scale-95 bg-white px-4 py-3 font-medium text-[#101828] transition hover:bg-gray-50">
          <Plus size={18} />
          Record Expense
        </button>
    
-       <button className="flex items-center justify-center gap-2 rounded-lg bg-[#10B981] px-4 py-3 font-medium text-white transition hover:bg-[#059669]">
+       <button onClick={() => navigate('/dashboard/createsale')}
+       className="flex items-center justify-center cursor-pointer active:scale-95 gap-2 rounded-lg bg-[#10B981] px-4 py-3 font-medium text-white transition hover:bg-[#059669]">
          <Plus size={18} />
          Record Sale
        </button>

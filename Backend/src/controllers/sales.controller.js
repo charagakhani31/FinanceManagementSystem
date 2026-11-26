@@ -119,12 +119,14 @@ async function createSales(req, res) {
         paymentStatus,
         business: req.user.business
       }], { session })
+      await sale.populate('customer');
 
       await session.commitTransaction()
 
       res.status(201).json({
         message: "sale created successfully", 
-        sale
+        sale: sale
+        
       })
 
     }
@@ -146,7 +148,7 @@ async function createSales(req, res) {
 
 async function viewSales(req, res) {
     
-    const sales = await saleModel.find({business: req.user.business})
+    const sales = await saleModel.find({business: req.user.business}).populate('customer')
 
     if(sales.length === 0) {
         return res.status(404).json({

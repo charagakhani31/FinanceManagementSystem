@@ -16,6 +16,7 @@ const ProductProvider = ({children}) => {
     const filteredProducts = products.filter((product) => 
                    product.productName?.toLowerCase().includes(searchQuery.toLocaleLowerCase()));
 
+    
     async function getProducts() {
         try {
 

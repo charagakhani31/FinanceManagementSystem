@@ -25,7 +25,7 @@ const AddProduct = () => {
 
     await addProduct(productName, sku, description, purchasePrice, sellingPrice, quantity)
 
-    fetchData()
+    await fetchData()
   };
 
   return (

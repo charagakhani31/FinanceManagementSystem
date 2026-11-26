@@ -15,6 +15,12 @@ import UpdateProduct from './pages/UpdateProduct'
 import Vendors from './pages/Vendors'
 import AddVendor from './pages/AddVendor'
 import UpdateVendor from './pages/UpdateVendor'
+import CreateSale from './pages/CreateSale'
+import Sales from './pages/Sales'
+import SaleDetails from './pages/SaleDetails'
+import Expenses from './pages/Expenses'
+import AddExpense from './pages/AddExpense'
+import UpdateExpense from './pages/UpdateExpense'
 
 const App = () => {
   return (
@@ -36,6 +42,12 @@ const App = () => {
            <Route path='/dashboard/vendors' element={<Vendors />} />
            <Route path='/dashboard/vendors/addvendor' element={<AddVendor />} />
            <Route path='/dashboard/vendors/editvendor' element={<UpdateVendor />} />
+           <Route path='/dashboard/createsale' element={<CreateSale />} />
+           <Route path='/dashboard/sales' element={<Sales />} />
+            <Route path='/dashboard/sales/viewdetail' element={<SaleDetails />} />
+             <Route path='/dashboard/expenses' element={<Expenses />} />
+              <Route path='/dashboard/expenses/addexpense' element={<AddExpense />} />
+               <Route path='/dashboard/expenses/editexpense' element={<UpdateExpense />} />
         </Route>
       </Routes>
     </div>

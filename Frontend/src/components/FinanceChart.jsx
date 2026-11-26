@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import {
   ResponsiveContainer,
   BarChart,
@@ -8,24 +9,21 @@ import {
   Legend,
   CartesianGrid
 } from 'recharts'
-
-const data = [
-  { month: 'Jan', income: 50000, expenses: 20000 },
-  { month: 'Feb', income: 65000, expenses: 30000 },
-  { month: 'Mar', income: 45000, expenses: 25000 },
-  { month: 'Apr', income: 80000, expenses: 40000 },
-]
+import { DashboardContext } from '../context/DashboardContext'
 
 const FinanceChart = () => {
+
+  const { chartData } = useContext(DashboardContext)
+             
   return (
     <div className="bg-white p-5 rounded-xl border border-gray-200">
       <h2 className="text-lg font-semibold text-[#101828] mb-5">
-        Income vs Expenses
+        Sales vs Expenses
       </h2>
 
       <div className="w-full h-72">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data}>
+          <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" />
 
             <XAxis dataKey="month" />
@@ -34,7 +32,7 @@ const FinanceChart = () => {
             <Tooltip />
             <Legend />
 
-            <Bar dataKey="income" fill="#10B981" />
+            <Bar dataKey="sales" fill="#10B981" />
             <Bar dataKey="expenses" fill="#101828" />
           </BarChart>
         </ResponsiveContainer>

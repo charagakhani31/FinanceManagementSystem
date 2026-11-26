@@ -9,6 +9,8 @@ import BusinessProvider from './context/BusinessContext.jsx'
 import CustomerProvider from './context/CustomerContext.jsx'
 import ProductProvider from './context/ProductContext.jsx'
 import VendorsProvider from './context/VendorsContext.jsx'
+import SaleProvider from './context/SaleContext.jsx'
+import ExpenseProvider from './context/ExpenseContext.jsx'
 
 createRoot(document.getElementById('root')).render(
  <BrowserRouter>
@@ -18,7 +20,11 @@ createRoot(document.getElementById('root')).render(
       <CustomerProvider>
         <ProductProvider>
           <VendorsProvider>
+            <SaleProvider>
+              <ExpenseProvider>
     <App />
+    </ExpenseProvider>
+    </SaleProvider>
     </VendorsProvider>
     </ProductProvider>
    </CustomerProvider>

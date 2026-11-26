@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Search, Eye, Plus, Filter } from 'lucide-react'
 import { DashboardContext } from '../context/DashboardContext'
 
@@ -70,8 +70,8 @@ const SaleHistory = () => {
                 <tr key={sale._id} className='hover:bg-gray-50'>
 
                   <td className='px-5 py-4 font-medium text-[#101828]'>
-                    {sale._id}
-                  </td>
+                    {sale?._id?.slice(-6).toUpperCase()}
+                  </td> 
 
                   <td className='px-5 py-4 text-gray-700'>
                     {sale.customer.customerName}

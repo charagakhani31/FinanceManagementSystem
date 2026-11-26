@@ -2,6 +2,15 @@ import userModel from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
+const isProduction = process.env.NODE_ENV === "production";
+
+const cookieOptions = {
+  httpOnly: true,
+  secure: isProduction,
+  sameSite: isProduction ? "none" : "lax",
+  maxAge: 7 * 24 * 60 * 60 * 1000, 
+};
+
 
 async function registerUser(req, res) {
 
@@ -35,7 +44,7 @@ async function registerUser(req, res) {
     role: user.role
  }, process.env.JWT_SECRET_KEY);
 
-  res.cookie("token", token);
+  res.cookie("token", token, cookieOptions);
 
   res.status(201).json({
     message: "user registered successfully",
@@ -80,7 +89,7 @@ async function loginUser(req, res) {
         role: user.role
     }, process.env.JWT_SECRET_KEY)
 
-    res.cookie("token", token)
+    res.cookie("token", token, cookieOptions)
 
     res.status(200).json({
         message: "user logged in successfully",
@@ -100,11 +109,15 @@ async function logOutUser(req,res) {
 
     if(!token) {
         return res.status(401).json({
-            message: "user is not log in"
+            message: "user is not login"
         })
     }
 
-    res.clearCookie("token");
+    res.clearCookie("token", {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
+  });
 
     res.status(200).json({
         message: "user logged out successfully"

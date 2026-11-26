@@ -3,7 +3,7 @@ import app from "./src/app.js";
 import connectDB from "./src/config/db.js";
 
 
-connectDB();
+await connectDB();
 
 app.listen(process.env.PORT, () => {
     console.log(`server is running on the port ${process.env.PORT}`);

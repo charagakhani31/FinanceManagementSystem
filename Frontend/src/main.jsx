@@ -11,6 +11,15 @@ import ProductProvider from './context/ProductContext.jsx'
 import VendorsProvider from './context/VendorsContext.jsx'
 import SaleProvider from './context/SaleContext.jsx'
 import ExpenseProvider from './context/ExpenseContext.jsx'
+import axios from "axios";
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+axios.interceptors.request.use((config) => {
+  if (config.url) {
+    config.url = config.url.replace("http://localhost:3000", API_URL);
+  }
+  return config;
+});
 
 createRoot(document.getElementById('root')).render(
  <BrowserRouter>

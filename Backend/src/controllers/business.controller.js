@@ -37,22 +37,22 @@ async function createBusiness(req, res) {
 
 async function viewBusiness(req, res) {
     
-let query = {};
+let query;
 
-if (req.user.role === "owner") {
- query = { owner: req.user.id }
-}
-else {
-    query = { _id: req.user.business }
-}
+        if (req.user.role === "owner") {
+            query = { owner: req.user.id };
+        } else {
+            if (!req.user.business) {
+                return res.status(200).json({
+                    message: "no business assigned yet",
+                    businesses: []
+                });
+            }
+            query = { _id: req.user.business };
+        }
+
 
     const businesses = await businessModel.find(query);
-
-       if (businesses.length === 0) {
-      return res.status(404).json({
-        message: "No businesses found"
-      });
-    }
 
     res.status(200).json({
         message: "Business fetched successfully",

@@ -147,14 +147,15 @@ async function createSales(req, res) {
 }
 
 async function viewSales(req, res) {
+
+     if (!req.user.business) {
+            return res.status(200).json({
+                message: "no business created yet",
+                sales: []
+            })
+        }
     
     const sales = await saleModel.find({business: req.user.business}).populate('customer')
-
-    if(sales.length === 0) {
-        return res.status(404).json({
-            message: "sales not found"
-        })
-    }
 
     res.status(200).json({
         message: "sales fetched successfully",

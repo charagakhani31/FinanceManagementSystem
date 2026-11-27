@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+import { Analytics } from "@vercel/analytics/react";
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Register from './pages/Register'
@@ -51,6 +52,9 @@ const App = () => {
                <Route path='/dashboard/expenses/editexpense' element={<UpdateExpense />} />
         </Route>
       </Routes>
+
+       <Analytics />
+       
     </div>
   )
 }
